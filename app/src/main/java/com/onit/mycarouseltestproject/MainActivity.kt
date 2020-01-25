@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         viewPager.otherPagesWidth = dpToPx((3*margin / 7).toInt())
         viewPager.sliderPageMargin =  dpToPx((4*margin / 7).toInt())
         Log.e("test", "디바이스의 가로 dp는 ${getWidth()}입니다.")
-
+        Log.e("test", "itemHeight : ${(getWidth()*73/100*8/5).toInt()} itemWidth : ${(getWidth()*73/100).toInt()}")
 
         val list = ArrayList<Card>()
         val card1 = Card("T_membership", type =  1)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val card3 = Card("T_membership", null, 1)
         list.add(card3)
 
-        viewPager.adapter = CardAdapter(list, clickCard, dpToPx((getWidth()*73/100).toInt()))
+        viewPager.adapter = CardAdapter(list, clickCard, dpToPx((getWidth()*73/100).toInt()), dpToPx((getWidth()*73/100*2/3).toInt()))
         Log.e("test", "한쪽 마진은 ${margin.toInt()}")
         Log.e("test", "양옆 페이지 가로는 ${(4*margin/7).toInt()}")
         Log.e("test", "마진은 ${(3*margin/7).toInt()}")

@@ -1,5 +1,6 @@
 package com.onit.mycarouseltestproject
 
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -7,15 +8,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.github.islamkhsh.CardSliderAdapter
 import java.util.*
 
-class CardAdapter(items: ArrayList<Card>, private val clickCardListener: (String, Int) -> (Unit), val itemWidth: Float) : CardSliderAdapter<Card>(items) {
+class CardAdapter(items: ArrayList<Card>, private val clickCardListener: (String, Int) -> (Unit), val itemWidth: Float, val itemHeight: Float) : CardSliderAdapter<Card>(items) {
 
 
     override fun bindView(position: Int, itemContentView: View, item: Card?) {
         val card = getItem(position) as Card
+
         if(card.type == 2) {
             val constraintLayout = itemContentView.findViewById<ConstraintLayout>(R.id.centerConstraintLayout)
             val params1 : ViewGroup.LayoutParams = constraintLayout.layoutParams
             params1.width = itemWidth.toInt()
+            params1.height = itemHeight.toInt()
 
 
             itemContentView.findViewById<ImageView>(R.id.firstImage).setOnClickListener {
@@ -31,7 +34,8 @@ class CardAdapter(items: ArrayList<Card>, private val clickCardListener: (String
             }
             val params : ViewGroup.LayoutParams = imageView.layoutParams
             params.width = itemWidth.toInt()
-
+            Log.e("test", "item높이는 !!!! ${itemHeight.toInt()}")
+            params.height = itemHeight.toInt()
             imageView.layoutParams = params
         }
 

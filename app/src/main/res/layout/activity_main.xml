@@ -6,15 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topCons"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#FFF"
+        android:layout_height="140dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#4B5A97"
+        android:paddingBottom="61dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/topCons">
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -50,8 +59,7 @@
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF"
-            android:paddingTop="20dp"
+            android:background="#4B5A97"
             app:cardSlider_baseShadow="0dp"
             app:cardSlider_cardBackgroundColor="@android:color/transparent"
             app:cardSlider_cardCornerRadius="5dp"
@@ -61,6 +69,7 @@
             app:cardSlider_smallAlphaFactor="0.5"
             app:cardSlider_smallScaleFactor="0.85"
             app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="33dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topLinearLayout" />
 
